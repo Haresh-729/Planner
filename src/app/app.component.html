@@ -1,0 +1,77 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<style>
+  .button {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: linear-gradient(to right, #42b814, #74f242);
+}
+
+.input-field {
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid #ccc; /* Default border */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.input-field:focus {
+  border-color: #007bff; /* Border color when focused */
+  border-width: 1px; /* Thin border when focused */
+}
+</style>
+<main className="main bg-yellow-200 flex flex-col items-center justify-center" style="min-height: 100vh; display: flex; justify-content: center; align-items: center;">
+  <div class="content" style="min-height: 100vh; padding-top: 20px; width: 20%;">
+    <div class="container">
+      <h2 class="text-center mb-4" style="color: #fff; background-color: rgb(46, 106, 196); padding: 20px; border-radius: 10px;">{{title}}</h2>
+      <div class="card w-50 mx-auto" style="background-color: #fff; border: 1px solid #6c757d; border-radius: 10px;">
+        <div class="card-body p-4">
+          <div class="mb-3">
+            <!-- <label for="tasktitle" class="form-label" style="font-size: 18px;">Todo Title</label> -->
+            <input type="text" class="input-field"  id="tasktitle" placeholder="Enter task title" #tasktitle>
+          </div>
+          <div class="mb-3">
+            <!-- <label for="desc" class="form-label" style="font-size: 18px;">Todo Description</label> -->
+            <input type="text" class="input-field"  id="desc" placeholder="Enter task description" #desc>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="button" (click)="addTask(tasktitle.value,desc.value)" style="font-size: 18px; padding: 10px 20px 10px 20px;">Add Task</button>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <div *ngFor="let todo of todos" class="card w-50 mx-auto mb-3" style="background-color: #fff; border: 1px solid #6c757d; border-radius: 10px;">
+          <div class="card-body p-4">
+            <h5 class="card-title fw-bold mb-3">{{todo.id+1}}. {{todo.tasktitle}}</h5>
+            <p class="card-text mb-4">{{todo.desc}}</p>
+            <button class="btn btn-danger" (click)="removeTask(todo)">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<router-outlet />
